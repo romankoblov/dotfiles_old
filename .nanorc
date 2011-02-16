@@ -1,0 +1,246 @@
+# Use auto-indentation. 
+unset autoindent
+# Do not create backup files in filename~. 
+unset backup
+# Set the characters treated as closing brackets when justifying paragraphs. They cannot contain blank characters. Only closing punctuation, optionally followed by closing brackets, can end sentences. The default value is ""')>]}". 
+set brackets string ""')>]}"
+# Use bold text instead of reverse video text. 
+set boldtext
+# Constantly display the cursor position in the status bar.
+set const
+# Allow use of the blank line below the titlebar as extra editing space. 
+set morespace
+# Do non case sensitive searches by default. 
+unset casesensitive
+# Follow symlinks when writing files. 
+unset nofollow
+# Do not display the help lists at the bottom of the screen. 
+set nohelp
+# Make the Home key smarter. When Home is pressed anywhere but at the very beginning of non-whitespace characters on a line, the cursor will jump to that beginning (either forwards or backwards). If the cursor is already at that position, it will jump to the true beginning of the line. 
+set smarthome
+# Use smooth scrolling by default. 
+set smooth
+# Use a tab size of 3 columns. The value of n must be greater than 0. The default value is 8. 
+set tabsize 4
+# Allow file modification. 
+unset view
+
+# Syntax highlight
+
+# Python
+syntax "python" "\.py$"
+icolor brightblue "def [0-9A-Z_]+"
+color brightcyan "\<(and|assert|break|class|continue|def|del|elif|else|except|exec|finally|for|from|global|if|import|in|is|lambda|map|not|or|pass|print|raise|return|try|while)\>"
+color brightgreen "['][^']*[^\\][']" "[']{3}.*[^\\][']{3}"
+color brightgreen "["][^"]*[^\\]["]" "["]{3}.*[^\\]["]{3}"
+color brightgreen start=""""[^"]" end=""""" start="'''[^']" end="'''"
+color brightred "#.*$"
+
+# PHP
+syntax "php" "\.php[2345s~]?$"
+color brightblue "(.*)\("
+color blue "\$[a-zA-Z_0-9$]*|[=!<>]"
+color green "(var|class|function|echo|case|break|default|exit|switch|if|else|elseif|@|while)\s"
+color green "[.,{}();]"
+color red "('.*')|(\".*\")"
+color brightyellow "(#.*|//.*)$"
+color brightyellow start="/\*" end="\*/"
+color brightblue "(<\?(php)?|\?>)"
+color white start="\?>" end="<\?(php)?"
+
+# HTML
+syntax "HTML" "\.html$"
+color blue start="<" end=">"
+color red "&[^; ]*;"
+
+# Makefile
+syntax "makefile" "(m|M)akefile$" "\.mak$"
+color brightgreen "((C|CXX|LD)FLAGS)|LIBADD|LIBS|include"
+icolor cyan start="\{" end="\}"
+icolor cyan start="\(" end="\)"
+color brightyellow "\$"
+color green "#.*$"
+color red "[:=]"
+color magenta "\<(if|ifeq|else|endif)\>"
+color blue "\$\{.*}"
+color brightblue "\w+:"
+color green "#.*$"
+
+# Ruby
+syntax "ruby" "\.rb$"
+color yellow "\<(BEGIN|END|alias|and|begin|break|case|class|def|defined\?|do|else|elsif|end|ensure|false|for|if|in|module|next|nil|not|or|redo|rescue|retry|return|self|super|then|true|undef|unless|until|when|while|yield)\>"
+color brightblue "(\$|@|@@)?\<[A-Z]+[0-9A-Z_a-z]*"
+icolor magenta "([ 	]|^):[0-9A-Z_]+\>"
+color brightyellow "\<(__FILE__|__LINE__)\>"
+color brightmagenta "/([^/]|(\\/))*/[iomx]*" "%r\{([^}]|(\\}))*\}[iomx]*"
+color brightblue "`[^`]*`" "%x\{[^}]*\}"
+color green ""([^"]|(\\"))*"" "%[QW]?\{[^}]*\}" "%[QW]?\([^)]*\)" "%[QW]?<[^>]*>" "%[QW]?\[[^]]*\]" "%[QW]?\$[^$]*\$" "%[QW]?\^[^^]*\^" "%[QW]?![^!]*!"
+color brightgreen "#\{[^}]*\}"
+color green "'([^']|(\\'))*'" "%[qw]\{[^}]*\}" "%[qw]\([^)]*\)" "%[qw]<[^>]*>" "%[qw]\[[^]]*\]" "%[qw]\$[^$]*\$" "%[qw]\^[^^]*\^" "%[qw]![^!]*!"
+color cyan "#[^{].*$" "#$"
+color brightcyan "##[^{].*$" "##$"
+color green start="<<-?'?EOT'?" end="^EOT"
+color brightcyan "(XXX|TODO|FIXME|\?\?\?)"
+
+# Bash
+syntax "bash" "\.sh$"
+color magenta "\<(if|else|for|function|case|esac|in|select|until|while|do|elif|then|set|\.|done|fi)\>"
+color yellow "[(){}[;|<>]"
+color yellow "\]"
+color red "\<(source|alias|bg|bind|break|builtin|cd|command|compgen|complete|continue|dirs|disown|echo|enable|eval|exec|exit|fc|fg|getopts|hash|help|history|jobs|kill|let|logout|popd|printf|pushd|pwd|return|set|shift|shopt|suspend|test|times|trap|type|ulimit|umask|unalias|wait)\>"
+color red "\<(arch|awk|bash|bunzip2|bzcat|bzcmp|bzdiff|bzegrep|bzfgrep|bzgrep|bzip2|bzip2recover|bzless|bzmore|cat|chattr|chgrp|chmod|chown|chvt|cp|date|dd|deallocvt|df|dir|dircolors|dmesg|dnsdomainname|domainname|du|dumpkeys|echo|ed|egrep|false|fgconsole|fgrep|fuser|gawk|getkeycodes|gocr|grep|groups|gunzip|gzexe|gzip|hostname|igawk|install|kbd_mode|kbdrate|killall|last|lastb|link|ln|loadkeys|loadunimap|login|ls|lsattr|lsmod|lsmod.old|mapscrn|mesg|mkdir|mkfifo|mknod|mktemp|more|mount|mv|nano|netstat|nisdomainname|openvt|pgawk|pidof|ping|ps|pstree|pwd|rbash|readlink|red|resizecons|rm|rmdir|run-parts|sash|sed|setfont|setkeycodes|setleds|setmetamode|setserial|sh|showkey|shred|sleep|ssed|stat|stty|su|sync|tar|tempfile|touch|true|umount|uname|unicode_start|unicode_stop|unlink|utmpdump|uuidgen|vdir|wall|wc|ypdomainname|zcat|zcmp|zdiff|zegrep|zfgrep|zforce|zgrep|zless|zmore|znew|zsh)\>"
+color red "\<(aclocal|aconnect|aplay|apm|apmsleep|apropos|ar|arecord|as|as86|autoconf|autoheader|automake|awk|basename|bc|bison|cal|cat|cc|cdda2wav|cdparanoia|cdrdao|cd-read|cdrecord|chfn|chgrp|chmod|chown|chroot|chsh|clear|cmp|co|col|comm|cp|cpio|cpp|cut|dc|dd|df|diff|diff3|dir|dircolors|directomatic|dirname|du|env|expr|fbset|file|find|flex|fmt|free|ftp|funzip|fuser|gawk|gc|gcc|gdb|getent|getopt|gettext|gettextize|gimp|gimp-remote|gimptool|gmake|gs|head|hexdump|id|install|join|kill|killall|ld|ld86|ldd|less|lex|ln|locate|lockfile|logname|lp|lpr|ls|lynx|m4|make|man|mkdir|mknod|msgfmt|mv|namei|nasm|nawk|nice|nl|nm|nm86|nmap|nohup|nop|od|passwd|patch|pcregrep|pcretest|perl|perror|pidof|pr|printf|procmail|prune|ps2ascii|ps2epsi|ps2frag|ps2pdf|ps2ps|psbook|psmerge|psnup|psresize|psselect|pstops|rcs|rev|rm|scp|sed|seq|setterm|shred|size|size86|skill|slogin|snice|sort|sox|split|ssh|ssh-add|ssh-agent|ssh-keygen|ssh-keyscan|stat|strings|strip|sudo|suidperl|sum|tac|tail|tee|test|tr|uniq|unlink|unzip|updatedb|updmap|uptime|users|vmstat|w|wc|wget|whatis|whereis|which|who|whoami|write|xargs|yacc|yes|zip|zsoelim)\>"
+color blue "\"(\\.|[^\"])*\""
+color blue "'(\\.|[^\"])*'"
+color cyan start="[$@%]" end="[[:alnum:]]*"
+color brightblack "#.*$"
+
+# Changelog
+syntax "changelogs" "ChangeLog*$" "HISTORY$" "NEWS$"
+color green "\+"
+color red "\-"
+color brightwhite "[0-9]"
+color brightblue "[0-9][0-9]\:[0-9][0-9]\:[0-9][0-9]"
+color blue "[0-9][0-9][0-9][0-9]\-[0-9][0-9]\-[0-9][0-9]"
+color blue "[0-9][0-9][0-9][0-9]\/[0-9][0-9]\/[0-9][0-9]"
+color yellow "[0-9]\..*$"
+color cyan "\*.*$"
+color brightblue "\<(pre.*$|beta.*$|rc.*$|release.*$)\>"
+color green "#.*$"
+icolor brightred "^[[:space:]]*[.0-9A-Z_]*:"
+color magenta "[.0-9A-Za-z_]*[[:space:]]*[.0-9A-Za-z_]*[[:space:]]<"
+color brightyellow  "<(\\.|[^\"])*>"
+color brightwhite "commit[[:space:]]*[.0-9A-Z_]*$"
+
+# Config
+syntax "configfiles" "\.(c(onf|nf|fg))$" "[S-s]ample$"  "xfce.*$" "syslog-ng" "sudoers"
+color brightwhite "\<(alias)\>"
+color blue "<(\\.|[^'])*>"
+color magenta "[a-zA-Z0-9\_]+="
+color white ">(\\.|[^'><])*</"
+color green "//.*$"
+color red ""(\\.|[^\"])*""
+color red "title.*$" "\<(server)\>" "\<(logfile)\>" "\<(driftfile)\>" "\<(restrict)\>"
+color white ":unscaled" "http\:\/\/" "ftp\:\/\/" "rsync\:\/\/"
+color magenta "'(\\.|[^'])*'"
+color brightwhite "[0-9]"
+color brightwhite "[<>]"
+color magenta "Section" "EndSection" "SubSection" "EndSubSection"
+color red "\<(root)\>"
+color brightred,blue "^.*-->" start="<!--.*" end="$"
+color green "#.*$" start="<!--" end="-->"
+syntax "config2" "env$" "server.$" "hosts" "gpm" "local.*$" "bootsplash" "crypto-loop"
+color red "/.*$" "http\:\/\/.*$"
+color white ":unscaled"
+color blue "setenv|export"
+color brightwhite "[0-9]"
+color green "#.*$"
+color white "http\:\/\/" "ftp\:\/\/" "rsync\:\/\/" 
+syntax "config3" "iptables" "ntp.*$" "rsyncd" "xfs" "saslauthd" "timidity" "net.*$" "hdparm" "esound" "login.*$"
+color red "/.*$" "http\:\/\/.*$" ""(\\.|[^\"])*"" "\<(server)\>" "\<(logfile)\>""\<(driftfile)\>"
+color white ":unscaled" "http\:\/\/" "ftp\:\/\/" "rsync\:\/\/"
+color blue "setenv|export"
+color brightwhite "[0-9]"
+color green "#.*$"
+
+# JS
+syntax "JavaScript" "\.(js)$"
+color white "^.+$"
+color yellow "\<[-+]?([1-9][0-9]*|0[0-7]*|0x[0-9a-fA-F]+)([uU][lL]?|[lL][uU]?)?\>"
+color yellow "\<[-+]?([0-9]+\.[0-9]*|[0-9]*\.[0-9]+)([EePp][+-]?[0-9]+)?[fFlL]?"
+color yellow "\<[-+]?([0-9]+[EePp][+-]?[0-9]+)[fFlL]?"
+color green "\<(break|case|catch|continue|default|delete|do|else|finally)\>"
+color green "\<(for|function|if|in|instanceof|new|null|return|switch)\>"
+color green "\<(switch|this|throw|try|typeof|undefined|var|void|while|with)\>"
+color red "\<(Array|Boolean|Date|Enumerator|Error|Function|Math)\>"
+color red "\<(Number|Object|RegExp|String)\>"
+color red "\<(true|false)\>"
+color brightyellow "L?\"(\\"|[^"])*\""
+color brightyellow "L?'(\'|[^'])*'"
+color red "\\[0-7][0-7]?[0-7]?|\\x[0-9a-fA-F]+|\\[bfnrt'"\?\\]"
+color magenta start="/\*" end="\*/"
+color magenta "//.*$"
+
+# Initscripts
+syntax "initscript" "/etc/init.d/$"
+color green "\<(case|do|done|elif|else|esac|exit|fi|for|function|if|in|local|read|return|select|shift|then|time|until|while)\>"
+color green "(\{|\}|\(|\)|\;|\]|\[|`|\\|\$|<|>|!|=|&|\|)"
+color green "-(e|d|f|r|g|u|w|x|L)\>"
+color green "-(eq|ne|gt|lt|ge|le|s|n|z)\>"
+color brightred "\$\{?[a-zA-Z_0-9]+\}?"
+color red "\<(ARCH|HOMEPAGE|DESCRIPTION|IUSE|SRC_URI|LICENSE|SLOT|KEYWORDS|FILESDIR|WORKDIR|(P|R)?DEPEND|PROVIDE|DISTDIR|RESTRICT|USERLAND)\>"
+color red "\<(S|D|T|PV|PF|P|PN|A)\>" "\<C(XX)?FLAGS\>" "\<LDFLAGS\>" "\<C(HOST|TARGET|BUILD)\>"
+color magenta "\<use(_(with|enable))?\> [!a-zA-Z0-9_+ -]*" "inherit.*"
+color brightblue "\<e(begin|end|conf|install|make|warn|infon?|error|patch)\>"
+color brightblue "\<die\>" "\<use(_(with|enable))?\>" "\<inherit\>" "\<has\>" "\<(has|best)_version\>" "\<unpack\>"
+color brightblue "\<do(python|sed|dir|hard|sym|html|jar|mo)\>" "\<keepdir\>"
+color blue "\<make\>" "\<(cat|cd|chmod|chown|cp|echo|env|export|grep|let|ln|mkdir|mv|rm|sed|set|tar|touch|unset)\>"
+color yellow "#.*$"
+color brightyellow ""(\\.|[^\"])*"" "'(\\.|[^'])*'"
+
+# INI
+syntax "ini" "\.ini(\.old|~)?$"
+color brightred "=.*$"
+color green "="
+color brightblue "-?[0-9\.]+\s*($|;)"
+color brightmagenta "ON|OFF|On|Off|on|off\s*($|;)"
+color brightcyan "^\s*\[.*\]"
+color cyan "^\s*[a-zA-Z0-9_\.]+"
+color brightyellow ";.*$"
+
+# CSS
+syntax "css" "\.css$"
+color brightred     "."
+color brightyellow  start="\{" end="\}"
+color brightwhite           start=":" end="[;^\{]"
+color brightblue    ":active|:focus|:hover|:link|:visited|:link|:after|:before|$"
+color brightblue    start="\/\*" end="\\*/"
+color green         ";|:|\{|\}"
+
+# Default
+syntax "default"
+color green "^#.*" 
+color brightgreen "^##.*"
+color yellow "^###.*"
+
+# Man
+syntax "man" "\.[1-9]x?$"
+color green "\.(S|T)H.*$"
+color brightgreen "\.(S|T)H" "\.TP"
+color brightred "\.(BR?|I[PR]?).*$"
+color brightblue "\.(BR?|I[PR]?|PP)"
+color brightwhite "\\f[BIPR]"
+color yellow "\.(br|DS|RS|RE|PD)"
+
+# nano.rc
+syntax "nanorc" "\.?nanorc$"
+icolor brightwhite "^[[:space:]]*((un)?set|include|syntax|i?color).*$"
+icolor brightgreen "^[[:space:]]*(set|unset)[[:space:]]+(autoindent|backup|backupdir|backwards|boldtext|brackets|casesensitive|const|cut|fill|historylog|matchbrackets|morespace|mouse|multibuffer|noconvert|nofollow|nohelp|nonewlines|nowrap|operatingdir|preserve|punct)\>" "^[[:space:]]*(set|unset)[[:space:]]+(quickblank|quotestr|rebinddelete|rebindkeypad|regexp|smarthome|smooth|speller|suspend|tabsize|tabstospaces|tempfile|view|whitespace|wordbounds)\>"
+icolor green "^[[:space:]]*(set|unset|include|syntax)\>"
+icolor yellow "^[[:space:]]*i?color[[:space:]]*(bright)?(white|black|red|blue|green|yellow|magenta|cyan)?(,(white|black|red|blue|green|yellow|magenta|cyan))?\>"
+icolor magenta "^[[:space:]]*i?color\>" "\<(start|end)="
+icolor white ""(\\.|[^"])*""
+icolor brightblue "^[[:space:]]*#.*$"
+icolor cyan "^[[:space:]]*##.*$"
+
+# Shell-like
+syntax "shlike" "\.(m4|sub|guess)$" "missing$" "configure\.ac$" "config\.(charset|rpath|status)$" "configure$"
+icolor brightgreen "^[0-9A-Z_]+\(\)"
+color green "\<(case|do|done|elif|else|esac|exit|fi|for|function|if|in|local|read|return|select|shift|then|time|until|while)\>"
+color green "(\{|\}|\(|\)|\;|\]|\[|`|\\|\$|<|>|!|=|&|\|)"
+color green "-[Ldefgruwx]\>"
+color green "-(eq|ne|gt|lt|ge|le|s|n|z)\>"
+color brightblue "\<(cat|cd|chmod|chown|cp|echo|env|export|grep|install|let|ln|make|mkdir|mv|rm|sed|set|tar|touch|umask|unset)\>"
+icolor brightred "\$\{?[0-9A-Z_!@#$*?-]+\}?"
+color cyan "(^|[[:space:]])#.*$"
+color brightyellow ""(\\.|[^"])*"" "'(\\.|[^'])*'"
+
+# xml
+syntax "ml" ".*\.([jrs]?html?|xml|sgml?|lhtml|opml|kdevelop|vcproj|glade|xsd|plist|gcs|dtd|dcl)$" "catalog$" "docbook$"
+color white "^.+$"
+color green  start="<" end=">"
+color cyan   "<[^> ]+"
+color cyan   ">"
+color yellow start="<!DOCTYPE" end="[/]?>"
+color yellow start="<!--" end="-->"
+color red    "&[^;]*;"
