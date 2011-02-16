@@ -55,7 +55,7 @@ parse_git_branch() {
 
 
 # Different color for each host
-host_color=`python ~/dotfiles/host_color.py`
+host_color=`~/dotfiles/host_color.py`
 
 
 # Append last command to history
