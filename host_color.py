@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2.6
 import commands, hashlib
 colorTuples = zip( [0]*8 + [1]*8, range(30,39)*2 )
 hostname = commands.getoutput( 'hostname' )
