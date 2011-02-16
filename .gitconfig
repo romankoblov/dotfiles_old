@@ -1,0 +1,16 @@
+[user]
+	name = Roman Koblov
+	email = penpen938@me.com
+[alias]
+	co = checkout
+	ci = commit
+	rb = rebase            
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[apply]
+	whitespace = nowarn
+[format]
+	pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
+								
