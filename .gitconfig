@@ -5,12 +5,17 @@
 	co = checkout
 	ci = commit
 	rb = rebase            
+	st = status
+	br = branch
 [color]
 	diff = auto
 	status = auto
 	branch = auto
+	ui = auto
 [apply]
 	whitespace = nowarn
 [format]
 	pretty = %C(yellow)%h%Creset %s %C(red)(%cr)%Creset
 								
+[core]
+	excludesfile = /Users/penpen/.gitignore

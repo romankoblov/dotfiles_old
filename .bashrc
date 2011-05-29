@@ -6,6 +6,8 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # ls colors
+#export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export LSCOLORS=fxfxcxdxbxegedabagacad
 if [ "$OS" = "linux" ] ; then
 # For linux, etc
   alias ls='ls --color=auto -F'
