@@ -5,6 +5,10 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+# MySQL stuff
+export DYLD_LIBRARY_PATH=/usr/local/mysql/lib/
+export PATH=$PATH:/usr/local/mysql/bin
+
 # ls colors
 #export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export LSCOLORS=fxfxcxdxbxegedabagacad
